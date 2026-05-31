@@ -1,0 +1,16 @@
+services:
+  database:
+    image: postgres:18-alpine
+    restart: unless-stopped
+    container_name: postgres-as-cacheing
+    environment:
+      - "POSTGRES_USER=postgres"
+      - "POSTGRES_PASSWORD=cacheing"
+      - "POSTGRES_DB=cacheing"
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres-as-cacheing:/var/lib/postgresql
+
+volumes:
+  postgres-as-cacheing:
